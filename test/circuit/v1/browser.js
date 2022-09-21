@@ -140,11 +140,14 @@ export default {
      * @param {Controller} relay
      */
     connect: async (nodeA, nodeB, relay) => {
+      // @ts-ignore
       await relay.api.swarm.connect(await getWsAddr(nodeA.api))
+      // @ts-ignore
       await relay.api.swarm.connect(await getWrtcStarAddr(nodeB.api))
       // TODO: needed until https://github.com/ipfs/interop/issues/17 is resolved
       await delay(5000)
       const nodeBCircuitAddr = new Multiaddr(`${await getWrtcStarAddr(relay.api)}/p2p-circuit/p2p/${nodeB.peer.id.toString()}`)
+      // @ts-ignore
       await nodeA.api.swarm.connect(nodeBCircuitAddr)
     },
     skip: () => true // go-ipfs does not know what p2p-webrtc-star is
@@ -164,11 +167,14 @@ export default {
      * @param {Controller} relay
      */
     connect: async (nodeA, nodeB, relay) => {
+      // @ts-ignore
       await relay.api.swarm.connect(await getWsAddr(nodeA.api))
+      // @ts-ignore
       await relay.api.swarm.connect(await getWrtcStarAddr(nodeB.api))
       // TODO: needed until https://github.com/ipfs/interop/issues/17 is resolved
       await delay(3000)
       const nodeBCircuitAddr = new Multiaddr(`${await getWrtcStarAddr(relay.api)}/p2p-circuit/p2p/${(await nodeB.api.id()).id.toString()}`)
+      // @ts-ignore
       await nodeA.api.swarm.connect(nodeBCircuitAddr)
     },
     skip: () => isWebWorker // no webrtc support in webworkers
@@ -188,11 +194,14 @@ export default {
      * @param {Controller} relay
      */
     connect: async (nodeA, nodeB, relay) => {
+      // @ts-ignore
       await relay.api.swarm.connect(await getWrtcStarAddr(nodeA.api))
+      // @ts-ignore
       await relay.api.swarm.connect(await getWsAddr(nodeB.api))
       // TODO: needed until https://github.com/ipfs/interop/issues/17 is resolved
       await delay(5000)
       const nodeBCircuitAddr = new Multiaddr(`${await getWrtcStarAddr(relay.api)}/p2p-circuit/p2p/${(await nodeB.api.id()).id.toString()}`)
+      // @ts-ignore
       await nodeA.api.swarm.connect(nodeBCircuitAddr)
     },
     skip: () => isWebWorker // no webrtc support in webworkers
@@ -212,11 +221,14 @@ export default {
      * @param {Controller} relay
      */
     connect: async (nodeA, nodeB, relay) => {
+      // @ts-ignore
       await relay.api.swarm.connect(await getWrtcStarAddr(nodeA.api))
+      // @ts-ignore
       await relay.api.swarm.connect(await getWsAddr(nodeB.api))
       // TODO: needed until https://github.com/ipfs/interop/issues/17 is resolved
       await delay(3000)
       const nodeBCircuitAddr = new Multiaddr(`${await getWrtcStarAddr(relay.api)}/p2p-circuit/p2p/${(await nodeB.api.id()).id.toString()}`)
+      // @ts-ignore
       await nodeA.api.swarm.connect(nodeBCircuitAddr)
     },
     skip: () => isWebWorker // no webrtc support in webworkers
